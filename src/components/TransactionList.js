@@ -4,10 +4,10 @@ export const TransactionList = () => {
     return (
         <>
             <h4>History</h4>
-            <ul id="list" className="list">
-                <li class="minus">
+            <ul className="list">
+                <li className="minus">
                     Cash <span>-$400</span>
-                    <button class="delete-btn">x</button>
+                    <button className="delete-btn">x</button>
                 </li>
             </ul>
         </>
