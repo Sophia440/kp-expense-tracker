@@ -33,6 +33,11 @@ export const AddTransaction = () => {
         setAmount(0)
     }
 
+    const clear = () => {
+        localStorage.clear()
+        setTransactions([])
+    }
+
     return (
         <>
             <h4>Add new transaction</h4>
@@ -51,6 +56,7 @@ export const AddTransaction = () => {
                            placeholder="Enter amount..."/>
                 </div>
                 <button className="btn" onClick={newTransaction}>Add transaction</button>
+                <button className="btn" onClick={clear}>Clear</button>
             </form>
         </>
     )
