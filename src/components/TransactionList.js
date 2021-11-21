@@ -1,14 +1,14 @@
 import React from 'react';
+import {Transaction} from './Transaction';
 
-export const TransactionList = () => {
+export const TransactionList = ({transactions, setTransactions}) => {
     return (
         <>
             <h4>History</h4>
             <ul className="list">
-                <li className="minus">
-                    Cash <span>-$400</span>
-                    <button className="delete-btn">x</button>
-                </li>
+                {transactions.map(transaction => (
+                    <Transaction key={transaction.id} transaction={transaction} transactions={transactions}
+                                 setTransactions={setTransactions}/>))}
             </ul>
         </>
     )
