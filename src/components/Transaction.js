@@ -1,18 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
-export const Transaction = ({transaction}) => {
-    const [transactions, setTransactions] = useState(
-        JSON.parse(localStorage.getItem('transactions')) || []
-    );
-
-    // useEffect(() => {
-    //     localStorage.setItem('transactions', JSON.stringify(transactions))
-    // }, [transactions]);
+export const Transaction = ({transaction, transactions, setTransactions}) => {
 
     const deleteTransaction = (id) => {
         setTransactions(transactions.filter((transaction) => transaction.id !== id))
-        // TODO figure out why transaction isn't removed
-        //localStorage.setItem('transactions', JSON.stringify(transactions))
     };
 
     const sign = transaction.amount < 0 ? '-' : '+';

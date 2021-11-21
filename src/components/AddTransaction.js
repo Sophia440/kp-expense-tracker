@@ -2,13 +2,9 @@ import React, {useState, useEffect} from 'react'
 import {v4} from 'uuid'
 import {randomColor} from 'randomcolor'
 
-export const AddTransaction = () => {
+export const AddTransaction = ({transactions, setTransactions}) => {
     const [text, setText] = useState('');
     const [amount, setAmount] = useState(0);
-
-    const [transactions, setTransactions] = useState(
-        JSON.parse(localStorage.getItem('transactions')) || []
-    );
 
     useEffect(() => {
         localStorage.setItem('transactions', JSON.stringify(transactions))
