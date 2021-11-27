@@ -1,16 +1,20 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {v4} from 'uuid'
 import {randomColor} from 'randomcolor'
+import {useDispatch} from "react-redux";
+import {bindActionCreators} from 'redux'
+import {actionCreators} from "../state/index"
 
-export const AddTransaction = ({transactions, setTransactions}) => {
+export const AddTransaction = () => {
+
+    const dispatch = useDispatch();
+    const {addTransaction} = bindActionCreators(actionCreators, dispatch);
+
     const [text, setText] = useState('');
     const [amount, setAmount] = useState(0);
 
-    useEffect(() => {
-        localStorage.setItem('transactions', JSON.stringify(transactions))
-    }, [transactions]);
-
-    const newTransaction = () => {
+    const onSubmit = e => {
+        e.preventDefault();
         if (text.trim() !== '') {
             const newTransaction = {
                 id: v4(),
@@ -19,9 +23,8 @@ export const AddTransaction = ({transactions, setTransactions}) => {
                 color: randomColor({
                     luminosity: 'light'
                 })
-
-            };
-            setTransactions((transactions) => [...transactions, newTransaction])
+            }
+            addTransaction(newTransaction);
         } else {
             alert('Input something');
         }
@@ -29,15 +32,10 @@ export const AddTransaction = ({transactions, setTransactions}) => {
         setAmount(0)
     }
 
-    const clear = () => {
-        localStorage.clear()
-        setTransactions([])
-    }
-
     return (
         <>
             <h4>Add new transaction</h4>
-            <form>
+            <form onSubmit={onSubmit}>
                 <div className="form-control">
                     <label htmlFor="text">Text</label>
                     <input type="text" value={text} onChange={(e) => setText(e.target.value)}
@@ -51,8 +49,7 @@ export const AddTransaction = ({transactions, setTransactions}) => {
                     <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)}
                            placeholder="Enter amount..."/>
                 </div>
-                <button className="btn" onClick={newTransaction}>Add transaction</button>
-                <button className="btn" onClick={clear}>Clear</button>
+                <button className="btn">Add transaction</button>
             </form>
         </>
     )

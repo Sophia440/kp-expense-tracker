@@ -1,10 +1,12 @@
 import React from 'react';
+import {useDispatch} from "react-redux";
+import {bindActionCreators} from "redux";
+import {actionCreators} from "../state";
 
-export const Transaction = ({transaction, transactions, setTransactions}) => {
+export const Transaction = ({transaction}) => {
 
-    const deleteTransaction = (id) => {
-        setTransactions(transactions.filter((transaction) => transaction.id !== id))
-    };
+    const dispatch = useDispatch();
+    const {deleteTransaction} = bindActionCreators(actionCreators, dispatch);
 
     const sign = transaction.amount < 0 ? '-' : '+';
 
