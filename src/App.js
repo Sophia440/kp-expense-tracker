@@ -15,8 +15,8 @@ function App() {
         <div>
             <Header/>
             <div className="wrapper">
-                <Balance/>
-                <IncomeExpenses/>
+                <Balance transactions={transactions}/>
+                <IncomeExpenses transactions={transactions}/>
                 <TransactionList transactions={transactions} setTransactions={setTransactions}/>
                 <AddTransaction transactions={transactions} setTransactions={setTransactions}/>
             </div>
