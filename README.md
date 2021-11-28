@@ -14,3 +14,7 @@ An expense tracker app for a university course. Will be made mostly with React, 
 # Week 4 result
 
 ![week 4](https://user-images.githubusercontent.com/52035985/139582964-0f9b1026-3065-4623-9ec5-3239edd76a55.png)
+
+# Week 8 result
+
+![week 8 1](https://user-images.githubusercontent.com/52035985/143775031-2f04df7b-fdf2-4700-9e4d-b77e7d8a5851.png)
