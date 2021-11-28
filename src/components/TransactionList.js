@@ -6,6 +6,8 @@ import {actionCreators} from "../state";
 
 export const TransactionList = () => {
     const {transactions} = useSelector((state) => state.transactions);
+
+    // TODO revive localStorage (deleted after adding redux)
     //const {transactions} = JSON.parse(localStorage.getItem('transactions')) || [];
 
     const dispatch = useDispatch();

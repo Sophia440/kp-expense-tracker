@@ -6,7 +6,6 @@ import {bindActionCreators} from 'redux'
 import {actionCreators} from "../state/index"
 
 export const AddTransaction = () => {
-
     const dispatch = useDispatch();
     const {addTransaction} = bindActionCreators(actionCreators, dispatch);
 

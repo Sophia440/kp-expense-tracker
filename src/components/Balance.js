@@ -2,7 +2,6 @@ import React from 'react'
 import {useSelector} from "react-redux"
 
 export const Balance = () => {
-
     const {transactions} = useSelector((state) => state.transactions);
 
     const amounts = transactions.map(transaction => transaction.amount);
