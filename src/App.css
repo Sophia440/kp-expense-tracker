@@ -21,7 +21,7 @@ body {
 
 .wrapper {
     margin: 30px auto;
-    width: 350px;
+    width: 400px;
 }
 
 h1 {
@@ -161,4 +161,44 @@ input[type='number'] {
 
 .list li:hover .delete-btn {
     opacity: 1;
+}
+
+.tabs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: table;
+    table-layout: fixed;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.tabs__item {
+    display: table-cell;
+}
+
+.tabs__link {
+    display: block;
+}
+
+.primary-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border-radius: 4px;
+    overflow: hidden;
+    color: #fff;
+}
+
+.primary-nav a {
+    padding: 1em;
+    background-color: #f7f7f7;
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.primary-nav a:hover {
+    background-color: #ddd;
 }
