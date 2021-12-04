@@ -174,7 +174,7 @@ input[type='number'] {
 }
 
 .tabs__item {
-    display: table-cell;
+    text-align: center;
 }
 
 .tabs__link {
@@ -192,6 +192,7 @@ input[type='number'] {
 }
 
 .primary-nav a {
+    flex: 1;
     padding: 1em;
     background-color: #f7f7f7;
     color: #000000;

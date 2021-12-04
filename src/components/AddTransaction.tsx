@@ -1,9 +1,12 @@
 import React, {useState} from 'react'
 import {v4} from 'uuid'
-import {randomColor} from 'randomcolor'
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from 'redux'
 import {actionCreators} from "../state/index"
+
+type Props = {
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
 
 export const AddTransaction = () => {
     const dispatch = useDispatch();
@@ -12,16 +15,13 @@ export const AddTransaction = () => {
     const [text, setText] = useState('');
     const [amount, setAmount] = useState(0);
 
-    const onSubmit = e => {
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (text.trim() !== '') {
             const newTransaction = {
                 id: v4(),
                 text: text,
-                amount: amount,
-                color: randomColor({
-                    luminosity: 'light'
-                })
+                amount: amount
             }
             addTransaction(newTransaction);
         } else {
@@ -45,7 +45,8 @@ export const AddTransaction = () => {
                     >Amount <br/>
                         (negative - expense, positive - income)</label
                     >
-                    <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)}
+                    <input type="number" value={amount}
+                           onChange={(e) => setAmount(parseInt(e.target.value))}
                            placeholder="Enter amount..."/>
                 </div>
                 <button className="btn">Add transaction</button>
